@@ -17,6 +17,7 @@ export default function LoadOnScroll({
             name={name}
             disabled={disabled}
             value={value}
+            className="load-select"
             onChange={(e) => {
                 const selected = opData.find((d) => d.value == e.target.value);
                 onChange(selected);

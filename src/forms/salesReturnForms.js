@@ -36,6 +36,15 @@ const searchDetailsForm = [
         label: "From Date",
     },
     {
+        type: "button",
+        name: "button 1",
+        label: "button 1",
+        className: "btn-secondary",
+        onClick: (formData) => {
+            console.log("button 1 clicked:", formData);
+        },
+    },
+    {
         type: "input",
         inputType: "date",
         name: "To Date",
@@ -53,6 +62,7 @@ const searchDetailsForm = [
         placeholder: "Enter invoice no",
     },
 
+
     // 🔽 NUMBER INPUT
     {
         type: "input",
@@ -62,7 +72,15 @@ const searchDetailsForm = [
         label: "Quantity",
         required: true,
     },
-
+    {
+        type: "button",
+        name: "button 2",
+        label: "button 2",
+        className: "btn-secondary",
+        onClick: (formData) => {
+            console.log("button 2 clicked:", formData);
+        },
+    },
     // 🔽 CHECKBOX
     {
         type: "checkbox",
@@ -76,23 +94,33 @@ const searchDetailsForm = [
         type: "radio",
         name: "ReturnType",
         path: "Header.ReturnType",
-        label: "Return Type",
+        label: "",
         required: true,
         options: [
             { value: "full", label: "Full Return" },
+        ],
+    },
+    {
+        type: "radio",
+        name: "ReturnType",
+        path: "Header.ReturnType",
+        label: "",
+        required: true,
+        options: [
             { value: "partial", label: "Partial Return" },
         ],
     },
 
     // 🔽 TEXTAREA
     {
-        type: "textarea",
-        name: "Remarks",
-        path: "Header.Remarks",
-        label: "Remarks",
-        placeholder: "Enter remarks here",
+        type: "button",
+        name: "button 3",
+        label: "button 3",
+        className: "btn-secondary",
+        onClick: (formData) => {
+            console.log("button 3 clicked:", formData);
+        },
     },
-
     // 🔽 BUTTONS
     {
         type: "button",

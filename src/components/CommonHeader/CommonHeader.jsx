@@ -18,6 +18,7 @@ const CommonHeader = ({
     containerGridClass,
     classesObj,
     splitForm = false,
+    onButtonClick,
 }) => {
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.globalData.apiData);
@@ -72,8 +73,7 @@ const CommonHeader = ({
 
             if (onFieldChange) onFieldChange(`${fieldPath}`, value);
         },
-        [dispatch, formKey, path, onFieldChange]
-    );
+        [dispatch, formKey, path, onFieldChange]);
 
     const formatDate = (dateStr) => {
         if (!dateStr) return '';
@@ -167,18 +167,14 @@ const CommonHeader = ({
                                                             name={field.name}
                                                             opData={dropdownData}
                                                             placeholder={field.placeholder || field.name}
-                                                            label={field.labelKey || 'label'}
-                                                            saveText={field.valueKey || 'value'}
-                                                            value={value || field.value || ''}
-                                                            onChange={(selected) =>
-                                                                handleFieldChange(
-                                                                    field.path,
-                                                                    selected?.value || 0
-                                                                )
-                                                            }
+                                                            label={field.labelKey || "label"}
+                                                            value={value}
                                                             disabled={isDisabled || field.disabled}
-                                                            requiredField={field.required}
+                                                            onChange={(selectedObj) =>
+                                                                handleFieldChange(field.path, selectedObj, "dropdown")
+                                                            }
                                                         />
+
                                                     </div>
                                                 );
                                             }
@@ -286,12 +282,18 @@ const CommonHeader = ({
                                                             className={field.className}
                                                             onClick={(e) => {
                                                                 e.preventDefault();
+
+                                                                // callback to App.js
+                                                                if (onButtonClick) onButtonClick(field.name || field.label, formData);
+
+                                                                // local click function
                                                                 if (field.onClick) field.onClick(formData, e);
                                                             }}
                                                             disabled={isDisabled || field.disabled}
                                                         >
                                                             {field.label}
                                                         </button>
+
                                                     </div>
                                                 );
 
@@ -326,15 +328,14 @@ const CommonHeader = ({
                                                 name={field.name}
                                                 opData={dropdownData}
                                                 placeholder={field.placeholder || field.name}
-                                                label={field.labelKey || 'label'}
-                                                saveText={field.valueKey || 'value'}
-                                                value={value || field.value || ''}
-                                                onChange={(selected) =>
-                                                    handleFieldChange(field.path, selected?.value || 0)
-                                                }
+                                                label={field.labelKey || "label"}
+                                                value={value}
                                                 disabled={isDisabled || field.disabled}
-                                                requiredField={field.required}
+                                                onChange={(selectedObj) =>
+                                                    handleFieldChange(field.path, selectedObj, "dropdown")
+                                                }
                                             />
+
                                         </div>
                                     );
                                 }
@@ -461,12 +462,18 @@ const CommonHeader = ({
                                                 className={field.className}
                                                 onClick={(e) => {
                                                     e.preventDefault();
+
+                                                    // callback to App.js
+                                                    if (onButtonClick) onButtonClick(field.name || field.label, formData);
+
+                                                    // local click function
                                                     if (field.onClick) field.onClick(formData, e);
                                                 }}
                                                 disabled={isDisabled || field.disabled}
                                             >
                                                 {field.label}
                                             </button>
+
                                         </div>
                                     );
 
