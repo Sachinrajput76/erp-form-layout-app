@@ -25,7 +25,8 @@
 .dropdown-md,
 .dropdown-sm,
 .checkbox-label-wrapper {
-  width: 278px;
+  /* width: 278px; */
+  width: 420px;
   display: flex;
   flex-direction: column;
 }
@@ -217,4 +218,87 @@ button:disabled {
   background: #f5f5f5;
   color: #777;
   cursor: not-allowed;
+}
+
+/* WRAPPER THAT CONTROLS LAYOUT */
+.form-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 columns on 1920px */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Every element inside CommonHeader */
+.form-grid>* {
+  width: 100%;
+}
+
+/* Make inputs, selects, date pickers look consistent */
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: white;
+}
+
+/* Buttons styling */
+.form-grid button {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+button.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+/* Responsiveness */
+
+@media (max-width: 1400px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-grid button[name="SearchBtn"],
+.form-grid button[name="ResetBtn"] {
+  grid-column: span 2;
+  /* 2 columns wide */
+}
+
+@media (max-width: 768px) {
+
+  .form-grid button[name="SearchBtn"],
+  .form-grid button[name="ResetBtn"] {
+    grid-column: span 1;
+  }
 }
