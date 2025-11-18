@@ -9,10 +9,15 @@ const searchDetailsForm = [
         label: "Item Name",
         required: true,
         options: [
-            { value: "item1", label: "Item 1" },
-            { value: "item2", label: "Item 2" },
-            { value: "item3", label: "Item 3" }
+            { value: "item1", label: "Item 1", shortCode: "S101" },
+            { value: "item2", label: "Item 2", shortCode: "S102" },
+            { value: "item3", label: "Item 3", shortCode: "S103" }
         ],
+        dropdownProps: {
+            shortCode: "shortCode",  // Field name in the option object
+            showShortCode: true,
+            position: "1" // 1 means after the value, 0 means before the value
+        }
     },
     {
         type: "dropdown",
@@ -21,10 +26,15 @@ const searchDetailsForm = [
         label: "Party Name",
         required: true,
         options: [
-            { value: "party1", label: "Party 1" },
-            { value: "party2", label: "Party 2" },
-            { value: "party3", label: "Party 3" }
+            { value: "party1", label: "Party 1", shortCode: "P101" },
+            { value: "party2", label: "Party 2", shortCode: "P102" },
+            { value: "party3", label: "Party 3", shortCode: "P103" }
         ],
+        dropdownProps: {
+            shortCode: "shortCode",
+            showShortCode: true,
+            position: 1
+        }
     },
 
     // 🔽 DATE INPUTS

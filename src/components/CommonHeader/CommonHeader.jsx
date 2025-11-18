@@ -173,6 +173,9 @@ const CommonHeader = ({
                                                             onChange={(selectedObj) =>
                                                                 handleFieldChange(field.path, selectedObj, "dropdown")
                                                             }
+                                                            shortCode={field.dropdownProps?.shortCode || "shortCode"}
+                                                            showShortCode={field.dropdownProps?.showShortCode || false}
+                                                            shortCodePosition={field.dropdownProps?.position || 1}
                                                         />
 
                                                     </div>
@@ -334,6 +337,9 @@ const CommonHeader = ({
                                                 onChange={(selectedObj) =>
                                                     handleFieldChange(field.path, selectedObj, "dropdown")
                                                 }
+                                                shortCode={field.dropdownProps?.shortCode || "shortCode"}
+                                                showShortCode={field.dropdownProps?.showShortCode || false}
+                                                shortCodePosition={field.dropdownProps?.position}
                                             />
 
                                         </div>
